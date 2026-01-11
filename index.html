@@ -3,211 +3,399 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بهار | Bhar - للطبيعة طعم آخر</title>
-    <link rel="icon" href="logoo.jpg" type="image/jpeg">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <title>بهار | Bhar</title>
     
-    <style>
-        :root {
-            --primary-color: #0d3b45; 
-            --accent-color: #ffc107; 
-            --text-color: #ffffff;
-            --card-bg: #154c59;
-        }
+    <link rel="icon" href="logoo.jpg">
 
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* === إعدادات الصفحة (نفس لون الخلفية البترولي) === */
         body {
             font-family: 'Tajawal', sans-serif;
-            background-color: var(--primary-color);
-            color: var(--text-color);
+            background-color: #0e3b43; /* اللون البترولي الغامق بتاعك */
+            color: white;
             margin: 0;
             padding: 0;
             text-align: center;
         }
 
+        /* === الهيدر (اللوجو والعنوان) === */
         header {
             padding: 30px 20px;
-            background: linear-gradient(to bottom, #08252b, var(--primary-color));
-            margin-bottom: 20px;
         }
 
-        .logo-container img {
-            width: 140px; 
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        .logo-box {
+            background-color: white;
+            width: 140px;
+            height: 140px;
+            border-radius: 25px; /* حواف ناعمة للمربع الأبيض */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        h1 { color: var(--accent-color); margin-top: 15px; font-size: 1.8rem; }
-        
-        /* عناوين الأقسام */
+        .logo-box img {
+            width: 90%;
+            height: auto;
+        }
+
+        header h1 {
+            color: #ffca28; /* الأصفر الذهبي */
+            font-size: 2.5rem;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #e0f7fa; /* أبيض مائل للسماوي الخفيف */
+            margin-top: 10px;
+        }
+
+        .delivery-alert {
+            font-size: 0.9rem;
+            color: #ffca28;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* === عناوين الأقسام (الخط الأصفر اللي تحتها) === */
         .section-title {
-            color: var(--accent-color);
-            font-size: 1.5rem;
-            margin: 40px 0 20px 0;
-            position: relative;
             display: inline-block;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--accent-color);
+            color: #ffca28;
+            font-size: 1.8rem;
+            font-weight: bold;
+            border-bottom: 3px solid #ffca28;
+            padding-bottom: 5px;
+            margin: 50px 0 30px;
         }
 
+        /* === شبكة المنتجات === */
         .products-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 25px;
-            padding: 0 20px 40px 20px;
+            gap: 20px;
+            padding: 0 15px 50px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
+        /* === كارت المنتج (نفس الستايل المدور) === */
         .product-card {
-            background-color: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            width: 280px;
-            padding: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
-        }
-
-        .product-image {
+            background-color: #154a50; /* درجة أفتح سنة بسيطة للكارت */
+            border-radius: 20px;
             width: 100%;
-            height: 180px;
-            background-color: #2a6f7d; /* لون خلفية مؤقت للصور */
-            border-radius: 10px;
-            object-fit: cover;
-            margin-bottom: 15px;
+            max-width: 350px; /* عرض الكارت المناسب للموبايل */
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-weight: bold;
-            font-size: 1.2rem;
         }
 
-        h3 { margin: 10px 0; font-size: 1.1rem; }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            font-size: 1.3rem;
+            margin: 10px 0 5px;
+            color: white;
+        }
 
         .price {
-            font-size: 1.3rem;
-            color: var(--accent-color);
+            color: #ffca28; /* السعر بالأصفر */
+            font-size: 1.4rem;
             font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
+            margin: 5px 0;
         }
 
-        .desc { font-size: 0.9rem; color: #ccc; margin-bottom: 15px; height: 40px; }
+        .desc {
+            color: #b2dfdb; /* وصف بلون فاتح هادي */
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
 
-        .btn-order {
+        /* === زرار الواتساب (الأخضر العريض) === */
+        .btn {
             background-color: #25D366;
             color: white;
             text-decoration: none;
-            padding: 10px 0;
-            border-radius: 50px;
-            display: block;
             font-weight: bold;
+            font-size: 1.1rem;
+            padding: 12px 0;
             width: 100%;
-            transition: 0.3s;
+            border-radius: 50px; /* مدور زي الكبسولة */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s;
         }
-        
-        .btn-order:hover { background-color: #1ebc57; }
 
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* === الفوتر === */
         footer {
-            margin-top: 50px;
+            background-color: #0b2e33;
             padding: 20px;
+            color: #80cbc4;
             font-size: 0.9rem;
-            background-color: #08252b;
-            color: #888;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
+        <div class="logo-box">
             <img src="logoo.jpg" alt="لوجو بهار">
         </div>
-        <h1>بهار | Bhar</h1>
-        <p>كل خيرات الطبيعة.. في بيتك 🏠</p>
-        
-        <p style="color: #ffc107; font-weight: bold; font-size: 0.9rem;">
-            🚚 التوصيل متاح حالياً داخل نطاق [العوايد و ضواحيها / الإسكندرية] فقط
-        </p>
+        <h1>Bhar | بهار</h1>
+        <p>🏠 كل خيرات الطبيعة.. في بيتك</p>
+        <div class="delivery-alert">
+            🚚 التوصيل متاح حالياً داخل نطاق [العوايد و ضواحيها] فقط
+        </div>
     </header>
 
-    <h2 class="section-title">🍯 العسل والبهارات</h2>
+
+    <div class="section-title">🍯 العسل والزيوت</div>
     <div class="products-grid">
         
         <div class="product-card">
-            <img src="honey.jpg" class="product-image" alt="عسل نحل">
+            <img src="honey.jpg" alt="عسل">
             <h3>عسل نحل جبلي (1 كيلو)</h3>
-            <span class="price">300 جنيه</span>
+            <div class="price">300 جنيه</div>
             <p class="desc">عسل طبيعي 100% مفحوص ومضمون.</p>
-            <a href="https://wa.me/201207977624?text=عايز اطلب عسل نحل" class="btn-order">اطلب واتساب 💬</a>
+            <a href="https://wa.me/201000000000?text=محتاج عسل جبلي" class="btn">
+                💬 اطلب واتساب
+            </a>
         </div>
 
         <div class="product-card">
-            <img src="bharat.jpg" class="product-image" alt="بهارات">
-            <h3>خلطة السبع بهارات</h3>
-            <span class="price">75 جنيه</span>
-            <p class="desc">خلطة سحرية لكل الأكلات، طحن طازج.</p>
-            <a href="https://wa.me/201207977624?text=عايز اطلب بهارات" class="btn-order">اطلب واتساب 💬</a>
-        </div>
-
-        <div class="product-card">
-            <img src="oil.jpg" class="product-image" alt="زيت زيتون">
+            <img src="olive-oil.jpg" alt="زيت زيتون">
             <h3>زيت زيتون بكر ممتاز</h3>
-            <span class="price">250 جنيه</span>
+            <div class="price">250 جنيه</div>
             <p class="desc">عصرة أولى على البارد، نقاء عالي.</p>
-            <a href="https://wa.me/201207977624?text=عايز اطلب زيت زيتون" class="btn-order">اطلب واتساب 💬</a>
+            <a href="https://wa.me/201000000000?text=محتاج زيت زيتون" class="btn">
+                💬 اطلب واتساب
+            </a>
         </div>
 
         <div class="product-card">
-            <img src="tehena.jpg" class="product-image" alt="طحينة">
+            <img src="tahini.jpg" alt="طحينة">
             <h3>طحينة سمسم صافي</h3>
-            <span class="price">185 جنيه</span>
+            <div class="price">185 جنيه</div>
             <p class="desc">طحينة خام بدون إضافات (قريباً).</p>
-            <a href="https://wa.me/201207977624?text=عايز استفسر عن الطحينة" class="btn-order">احجز الآن 💬</a>
+            <a href="https://wa.me/201000000000?text=محتاج طحينة" class="btn">
+                💬 احجز الآن
+            </a>
+        </div>
+    </div>
+
+
+    <div class="section-title">🌶️ البهارات والعطارة</div>
+    <div class="products-grid">
+
+        <div class="product-card">
+            <img src="spices-mix.jpg" alt="سبع بهارات">
+            <h3>خلطة السبع بهارات</h3>
+            <div class="price">75 جنيه</div>
+            <p class="desc">خلطة سحرية لكل الأكلات، طحن طازج.</p>
+            <a href="https://wa.me/201000000000?text=محتاج السبع بهارات" class="btn">
+                💬 اطلب واتساب
+            </a>
+        </div>
+
+        <div class="product-card">
+            <img src="pepper.jpg" alt="فلفل أسود">
+            <h3>فلفل أسود برازيلي</h3>
+            <div class="price">65 جنيه <span style="font-size:0.8rem; color:#fff">(ثمن كيلو)</span></div>
+            <p class="desc">حبة كبيرة ونكهة قوية تظبط الأكل.</p>
+            <a href="https://wa.me/201000000000?text=محتاج فلفل أسود" class="btn">
+                💬 اطلب واتساب
+            </a>
+        </div>
+
+        <div class="product-card">
+            <img src="cumin.jpg" alt="كمون">
+            <h3>كمون بلدي فاخر</h3>
+            <div class="price">45 جنيه <span style="font-size:0.8rem; color:#fff">(ثمن كيلو)</span></div>
+            <p class="desc">ريحة نفاذة وطعم يوديك لبعيد.</p>
+            <a href="https://wa.me/201000000000?text=محتاج كمون" class="btn">
+                💬 اطلب واتساب
+            </a>
+        </div>
+
+        <div class="product-card">
+            <img src="coriander.jpg" alt="كزبرة">
+            <h3>كزبرة ناشفة</h3>
+            <div class="price">15 جنيه <span style="font-size:0.8rem; color:#fff">(ثمن كيلو)</span></div>
+            <p class="desc">سر الطشة المصرية والريحة اللي تفحفح.</p>
+            <a href="https://wa.me/201000000000?text=محتاج كزبرة" class="btn">
+                💬 اطلب واتساب
+            </a>
+        </div>
+
+        <div class="product-card">
+            <img src="chili.jpg" alt="شطة">
+            <h3>شطة حمراء (نار)</h3>
+            <div class="price">20 جنيه <span style="font-size:0.8rem; color:#fff">(ثمن كيلو)</span></div>
+            <p class="desc">للي بيحبوا الأكل المشطشط.</p>
+            <a href="https://wa.me/201000000000?text=محتاج شطة" class="btn">
+                💬 اطلب واتساب
+            </a>
+        </div>
+
+        <div class="product-card">
+            <img src="paprika.jpg" alt="بابريكا">
+            <h3>بابريكا إسباني (مدخنة)</h3>
+            <div class="price">36 جنيه <span style="font-size:0.8rem; color:#fff">(ثمن كيلو)</span></div>
+            <p class="desc">طعم الشوي والتدخين للأكل، جودة عالية.</p>
+            <a href="https://wa.me/201000000000?text=محتاج بابريكا" class="btn">
+                💬 اطلب واتساب
+            </a>
+        </div>
+
+        <div class="product-card">
+            <img src="cinnamon.jpg" alt="قرفة">
+            <h3>قرفة (خشب/ناعمة)</h3>
+            <div class="price">40 جنيه <span style="font-size:0.8rem; color:#fff">(ثمن كيلو)</span></div>
+            <p class="desc">ريحة دافية ومميزة للحلويات والسينابون.</p>
+            <a href="https://wa.me/201000000000?text=محتاج قرفة" class="btn">
+                💬 اطلب واتساب
+            </a>
+        </div>
+
+        <div class="product-card">
+            <img src="ginger.jpg" alt="زنجبيل">
+            <h3>زنجبيل ناعم بيور</h3>
+            <div class="price">40 جنيه <span style="font-size:0.8rem; color:#fff">(ثمن كيلو)</span></div>
+            <p class="desc">حارق للدهون ومقوي للمناعة، نكهة قوية.</p>
+            <a href="https://wa.me/201000000000?text=محتاج زنجبيل" class="btn">
+                💬 اطلب واتساب
+            </a>
+        </div>
+
+        <div class="product-card">
+            <img src="turmeric.jpg" alt="كركم">
+            <h3>كركم هندي</h3>
+            <div class="price">40 جنيه <span style="font-size:0.8rem; color:#fff">(ثمن كيلو)</span></div>
+            <p class="desc">لون ذهبي للأرز وفوائد للمفاصل.</p>
+            <a href="https://wa.me/201000000000?text=محتاج كركم" class="btn">
+                💬 اطلب واتساب
+            </a>
         </div>
 
     </div>
 
-    <h2 class="section-title">🧀 الأجبان والفلاحي</h2>
+
+    <div class="section-title">🧀 الأجبان والفلاحي</div>
     <div class="products-grid">
 
         <div class="product-card">
-            <img src="rome.jpg" class="product-image" alt="جبنة رومي">
+            <img src="rumi.jpg" alt="جبنة رومي">
             <h3>جبنة رومي (قديم/وسط)</h3>
-            <span class="price">220 جنيه</span>
+            <div class="price">220 جنيه</div>
             <p class="desc">تعتيق ممتاز وطعم يظبط الدماغ.</p>
-            <a href="https://wa.me/201207977624?text=عايز اطلب جبنة رومي" class="btn-order">اطلب واتساب 💬</a>
+            <a href="https://wa.me/201000000000?text=محتاج رومي" class="btn">
+                💬 اطلب واتساب
+            </a>
         </div>
 
         <div class="product-card">
-            <img src="aresh.jpg" class="product-image" alt="جبنة قريش">
+            <img src="kareish.jpg" alt="جبنة قريش">
             <h3>جبنة قريش فلاحي</h3>
-            <span class="price">95 جنيه</span>
+            <div class="price">95 جنيه</div>
             <p class="desc">خفيفة، صحية، وبخيرها.</p>
-            <a href="https://wa.me/201207977624?text=عايز اطلب جبنة قريش" class="btn-order">اطلب واتساب 💬</a>
+            <a href="https://wa.me/201000000000?text=محتاج قريش" class="btn">
+                💬 اطلب واتساب
+            </a>
         </div>
 
         <div class="product-card">
-            <img src="motz.jpg" class="product-image" alt="موتزاريلا">
+            <img src="mozzarella.jpg" alt="موتزاريلا">
             <h3>جبنة موتزاريلا طبيعي</h3>
-            <span class="price">285 جنيه</span>
+            <div class="price">285 جنيه</div>
             <p class="desc">مطة عالية للأكل البيتي والبيتزا.</p>
-            <a href="https://wa.me/201207977624?text=عايز اطلب موتزاريلا" class="btn-order">اطلب واتساب 💬</a>
+            <a href="https://wa.me/201000000000?text=محتاج موتزاريلا" class="btn">
+                💬 اطلب واتساب
+            </a>
+        </div>
+
+        <div class="product-card">
+            <img src="rayeb.jpg" alt="رايب">
+            <h3>لبن رايب طبيعي</h3>
+            <div class="price">25 جنيه</div>
+            <p class="desc">مهضم ومرطب، يروي العطش.</p>
+            <a href="https://wa.me/201000000000?text=محتاج رايب" class="btn">
+                💬 اطلب واتساب
+            </a>
+        </div>
+
+        <div class="product-card">
+            <img src="butter-white.jpg" alt="زبدة جاموسي">
+            <h3>زبدة جاموسي (بيضاء)</h3>
+            <div class="price">270 جنيه</div>
+            <p class="desc">الزبدة الفلاحي على أصولها.</p>
+            <a href="https://wa.me/201000000000?text=محتاج زبدة جاموسي" class="btn">
+                💬 اطلب واتساب
+            </a>
+        </div>
+
+    </div>
+
+
+    <div class="section-title">🌿 ركن الصحة والمناعة</div>
+    <div class="products-grid">
+
+        <div class="product-card">
+            <img src="barley.jpg" alt="تلبينة">
+            <h3>تلبينة (شعير كامل)</h3>
+            <div class="price">20 جنيه <span style="font-size:0.8rem; color:#fff">(ربع كيلو)</span></div>
+            <p class="desc">وصية نبوية، مريحة للمعدة والاكتئاب.</p>
+            <a href="https://wa.me/201000000000?text=محتاج تلبينة" class="btn">
+                💬 اطلب واتساب
+            </a>
+        </div>
+
+        <div class="product-card">
+            <img src="chia.jpg" alt="شيا">
+            <h3>بذور الشيا</h3>
+            <div class="price">45 جنيه <span style="font-size:0.8rem; color:#fff">(ثمن كيلو)</span></div>
+            <p class="desc">غنية بالأوميجا 3 وتشبع جداً.</p>
+            <a href="https://wa.me/201000000000?text=محتاج شيا" class="btn">
+                💬 اطلب واتساب
+            </a>
+        </div>
+
+        <div class="product-card">
+            <img src="sesame.jpg" alt="سمسم">
+            <h3>سمسم (أبيض/محمص)</h3>
+            <div class="price">20 جنيه <span style="font-size:0.8rem; color:#fff">(ثمن كيلو)</span></div>
+            <p class="desc">كالسيوم طبيعي للمخبوزات.</p>
+            <a href="https://wa.me/201000000000?text=محتاج سمسم" class="btn">
+                💬 اطلب واتساب
+            </a>
         </div>
 
     </div>
 
     <footer>
-        <p>جميع الحقوق محفوظة © 2026 - مشروع بهار</p>
+        جميع الحقوق محفوظة © 2026 - مشروع بهار
     </footer>
 
 </body>
-
 </html>
+
